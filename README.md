@@ -11,7 +11,7 @@ Wir haben diese Malware "Fractureiser" genannt, weil dies der Name des CurseForg
 
 ## Was DU wissen musst
 
-### [Modifizierte Spieler KLICKEN HIER](docs/users.md)
+### [modded-mc-Spieler KLICKEN HIER](docs/users.md)
 
 Wenn du nur ein Mod-Spieler und kein Entwickler bist, reicht der obige Link aus. Er enthält oberflächliche Informationen über die Auswirkungen der Malware, Schritte, um zu überprüfen, ob du sie hast und wie du sie entfernen kannst, sowie ein FAQ.
 
