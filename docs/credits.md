@@ -1,10 +1,10 @@
-## Credits
-Nonextensive! Thank you to all that pitched in. We'll flesh this out after this all blows over.
+## Danksagungen
+Nicht vollständg! Vielen Dank an alle, die mitgemacht haben. Wir werden das ausbauen, wenn das alles vorbei ist.
 
-**D3SL**: Extensive reverse engineering, early discovery learned of later  
-**Nia**: Extensive Stage 3 reverse engineering  
-**Jasmine**: Coordination, writing the decompiler we've been using (Quiltflower)  
-**Emi**: Coordination, initial discovery (for this team), and early research  
-**williewillus**: Coordination, journalist  
-**quat**: Documentation, initial infected sample research  
-**unascribed**: Coordination of documentation, crowd control, responsible for using Snopyta at first and the disaster that caused
+**D3SL**: Umfangreiches Reverse-Engineering, frühe Entdeckung, die erst später bekannt wurde  
+**Nia**: Umfassendes Reverse Engineering der Stufe 3  
+**Jasmine**: Koordinierung, Schreiben des Decompilers, den wir benutzt haben (Quiltflower)  
+**Emi**: Koordination, anfängliche Entdeckung (für dieses Team), und frühe Forschung  
+**williewillus**: Koordinierung, Journalist  
+**quat**: Dokumentation, Recherche zu ersten infizierten Proben  
+**unbeschrieben**: Koordination der Dokumentation, Kontrolle der Menschenmenge, verantwortlich für den anfänglichen Einsatz von Snopyta und die damit verbundene Katastrophe

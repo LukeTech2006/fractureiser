@@ -1,146 +1,143 @@
-# Modded Players Guide
+# Leitfaden für modifizierte Spieler
 
-If you **only** play vanilla through a trusted launcher such as the official launcher or
-Prism, and have never touched mods ever: you are 100% safe. Stay away from mods for the
-time being.
+Wenn du **nur** Vanilla über einen vertrauenswürdigen Launcher spielst, wie den offiziellen Launcher oder
+Prism spielst und noch nie Mods benutzt hast, bist du 100% sicher. Haltet euch sich vorerst von Mods fern.
 
-If you're a Modded Minecraft player, you need to verify if you have been infected by the
-fractureiser malware to ensure your machine and personal data are not at risk. You can do
-so with the instructions below.
+Wenn du ein moddded-Minecraft-Spieler bist, musst du überprüfen, ob du von der
+fractureiser-Malware infiziert wurdest, um sicherzustellen, dass dein Rechner und deine persönlichen Daten nicht gefährdet sind. Das kannst du mit Hilfe dieses Dokuments tun.
 
-Additional info on what to do if you are or are not infected will also be provided after the diagnostic steps.
+Zusätzliche Informationen darüber, was zu tun ist, wenn du infiziert bist oder nicht, findest du nach den Diagnoseschritten.
 
-## What Actually Happened?
+## Was ist eigentlich passiert?
 
-A number of Curseforge and dev.bukkit.org (not the Bukkit software itself) accounts were compromised, and malicious software was injected into copies of many popular plugins and mods. Some of these malicious copies have been injected into popular modpacks including Better Minecraft. *There are reports of malicious plugin/mod JARs as early as mid-April.*
+Eine Reihe von Curseforge- und dev.bukkit.org-Konten (nicht die Bukkit-Software selbst) wurden kompromittiert, und bösartige Software wurde in Kopien vieler beliebter Plugins und Mods injiziert. Einige dieser bösartigen Kopien wurden in beliebte Modpacks wie Better Minecraft eingeschleust. *Es gibt Berichte über bösartige Plugin/Mod-JARs, die bereits Mitte April veröffentlicht wurden.
 
-This malware is composed of multiple "stages", each Stage is responsible for downloading
-and running the next one. In total, there are three known Stages (Stages 1, 2, and 3),
-with infected mod files serving as a "Stage 0" to kick the whole process off.
+Diese Malware besteht aus mehreren "Stufen", wobei jede Stufe für das Herunterladen und Ausführen der nächsten Stufe verantwortlich ist.
+und Ausführen der nächsten Stufe. Insgesamt sind drei Stadien bekannt (Stadium 1, 2 und 3),
+wobei infizierte Mod-Dateien als "Phase 0" dienen, um den gesamten Prozess in Gang zu setzen.
 
-Stage 3 is the "mastermind" of the malware, and we have evidence that it attempts to do all of the following:
+Stufe 3 ist das "Superhirn" der Malware, und wir haben Beweise dafür, dass sie versucht, alles Folgende zu tun:
 
-* Propagate itself to *all* `jar` files on the filesystem, possibly infecting mods that
-  were not downloaded from CurseForge or BukkitDev, or other Java programs
-* Steal cookies and login information for many web browsers
-* Replace cryptocurrency addresses in the clipboard with alternates that are presumably owned by the attacker
-* Steal Discord credentials
-* Steal Microsoft and Minecraft credentials
+* sich auf *alle* `jar`-Dateien im Dateisystem auszubreiten und möglicherweise Mods zu infizieren, die
+  die nicht von CurseForge oder BukkitDev heruntergeladen wurden, oder andere Java-Programme
+* Stehlen von Cookies und Anmeldeinformationen für viele Webbrowser
+* Ersetzen von Kryptowährungsadressen in der Zwischenablage durch Alternativen, die vermutlich dem Angreifer gehören
+* Stehlen von Discord-Anmeldeinformationen
+* Stehlen von Microsoft- und Minecraft-Anmeldeinformationen
 
-(See [technical details](tech.md) for more info)
+(Siehe [technische Details](tech.md) für weitere Informationen)
 
-Because of its behavior, we are **very confident** this is a **targeted attack against the modded Minecraft ecosystem**. It's quite bad.
+Aufgrund seines Verhaltens sind wir **sehr zuversichtlich**, dass es sich um einen **gezielten Angriff gegen das modifizierte Minecraft-Ökosystem** handelt. Es ist ziemlich schlimm.
 
-**Until further notice, exercise extreme caution with Minecraft mod downloads, regardless
-of origin.** While the control server for this malware is currently offline, **any
-download from Curseforge or the Bukkit plugin repository in the last 2-3 weeks should be
-treated as potentially malicious**. Some malware scanners have started adding signatures
-to their databases, but until this rolls out to all of them, please exercise caution.
+**Bis auf weiteres sollten Sie beim Herunterladen von Minecraft-Mods extreme Vorsicht walten lassen, unabhängig von der Herkunft.
+Während der Kontrollserver für diese Malware derzeit offline ist, **ist jeder
+Download von Curseforge oder dem Bukkit-Plugin-Repository in den letzten 2-3 Wochen als
+als potentiell bösartig behandelt werden**. Einige Malware-Scanner haben begonnen, Signaturen
+in ihre Datenbanken aufzunehmen, aber bis dies bei allen der Fall ist, sollten Sie Vorsicht walten lassen.
 
-*At this point we cannot be confident claiming any hosting service is unaffected*. Please
-exercise caution regardless of what site you use. Even Maven repositories may be infected,
-and this malware goes back months.
+*Zum jetzigen Zeitpunkt können wir nicht mit Sicherheit behaupten, dass kein Hosting-Dienst betroffen ist. Bitte
+Vorsicht walten lassen, unabhängig davon, welche Seite du nutzt. Auch Maven-Repositories können infiziert sein,
+und diese Malware reicht potenziell Monate zurück.
 
-Currently, new infections are impossible as the attacker's server has been shut down,
-existing infections may still be active.
+Derzeit sind neue Infektionen unmöglich, da der Server des Angreifers abgeschaltet wurde,
+Bestehende Infektionen können jedoch noch aktiv sein.
 
-### What the f*** is a Stage?
+### Was ist eine Stufe?
 
 ![](media/stages.png)
 
-### Get to the point, how do I fix this?
+### Wie kann ich das reparieren?
 
 ![Flowchart](media/flowchart.png)
 
-## Am I Infected?
+## Bin ich infiziert?
 
-The malware has multiple stages, so asking whether you are infected is actually two questions
+Die Malware hat mehrere Stufen, so dass die Frage, ob Sie infiziert sind, eigentlich aus zwei Fragen besteht.
 
-### Do any of my mod files have Stage 0?
-A variety of scanners exist that take a mod file and detect whether it is infected by Stage 0 of the malware.
+### Ist eine meiner Mod-Dateien mit Stufe 0 infiziert?
+Es gibt eine Reihe von Scannern, die anhand einer Mod-Datei feststellen, ob sie mit der Stufe 0 der Malware infiziert ist.
 
-- Overwolf's [scanner](https://github.com/overwolf/jar-infection-scanner/releases)
-- cortex's [nekodetector](https://github.com/MCRcortex/nekodetector/releases) (click on "Assets" to show the binary)
+- Overwolfs [Scanner](https://github.com/overwolf/jar-infection-scanner/releases)
+- cortex's [nekodetector](https://github.com/MCRcortex/nekodetector/releases) (klicke auf "Assets", um die Binärdatei anzuzeigen)
 
-### Are Stage 2 files present on my system?
+### Befinden sich Dateien der Stufe 2 auf meinem System?
 
-Stage 2 files being on your system implies stage 0 and 1 of the malware ran successfully.
+Wenn sich Dateien der Stufe 2 auf deinem System befinden, bedeutet das, dass Stufe 0 und 1 der Malware erfolgreich ausgeführt wurden.
 
-Many virus scanners are starting to detect stage 2 files. If you get a warning that such
-files were found and removed, proceed to the "I'm Infected, Now What?" section.
+Viele Virenscanner beginnen, Dateien der Stufe 2 zu erkennen. Wenn du eine Warnung erhältst, dass solche
+Dateien gefunden und entfernt wurden, fahre mit dem Abschnitt "Ich bin infiziert, was nun?" fort.
 
-Otherwise, you can check manually by doing the following, based on your platform:
+Andernfalls kannst du je nach Plattform wie folgt manuell prüfen:
 
-#### Windows Instructions
+#### Windows Anleitung
 
-* Open your Start menu with the Windows Key, and type `%localappdata%` - it should appear as such:
-![Search results for the above query](media/localappdata.png)
+* Öffne dein Startmenü mit der Windows-Taste und gib "%localappdata%" ein - so sollte es erscheinen:
+![Suchergebnisse für die obige Abfrage](media/localappdata.png)
 
-* Inside the Local appdata folder, you must ensure that your Explorer is set to view both `Hidden Items`, and `Protected Operating System Files`. 
-  * This can be done from View > Options
-  * If you are unsure how to do this, a video explanation [can be found here](https://youtu.be/KLTlTlnXeKs).
+* Im Ordner Local appdata musst du sicherstellen, dass dein Explorer so eingestellt ist, dass er sowohl "Versteckte Elemente" als auch "Geschützte Betriebssystemdateien" anzeigt. 
+  * Dies kannst du über Ansicht > Optionen tun.
+  * Wenn du dir nicht sicher bist, wie das geht, findest du eine Videoerklärung [hier] (https://youtu.be/KLTlTlnXeKs).
 
 
-* Locate a folder named `Microsoft Edge`. The SPACE between "Microsoft" and "Edge" is
-  important - as `MicrosoftEdge` is a legitimate folder that is used by Edge.  The virus
-  simply named it like that to disguise itself.  The legitimate folder might also be
-  called `Microsoft\Edge` (an `Edge` folder inside a `Microsoft` folder).
-* If `Microsoft Edge` is present, you were infected. If this is the case, permanently delete the folder and everything inside it.
-  * If the folder can not be deleted, you must stop any Java programs currently running via your Task Manager.
+* Finde einen Ordner mit dem Namen "Microsoft Edge". Die Leerstelle zwischen "Microsoft" und "Edge" ist
+  wichtig - denn `MicrosoftEdge` ist ein legitimer Ordner, der von Edge verwendet wird.  Der Virus
+  hat ihn einfach so benannt, um sich zu tarnen.  Der legitime Ordner könnte auch
+  Der legitime Ordner könnte auch "Microsoft Edge" heißen (ein "Edge"-Ordner innerhalb eines "Microsoft"-Ordners).
+* Wenn `Microsoft Edge` vorhanden ist, wurdest du infiziert. Wenn dies der Fall ist, lösche den Ordner und alles, was sich darin befindet, endgültig.
+  * Wenn der Ordner nicht gelöscht werden kann, musst du alle Java-Programme, die gerade laufen, über den Task-Manager stoppen.
 
-#### Linux Instructions
+#### Linux Anleitung
 
-Firstly, ensure whichever method you are using to list files has the ability to view hidden files. Most GUI file managers have the shortcut Ctrl+H to toggle hidden files. If doing this on a terminal, use `ls -A` in the respective directories, or `ls -lha` for a more detailed listing.
+Vergewissere dich zunächst, dass die Methode, die du zum Auflisten von Dateien verwendest, die Möglichkeit bietet, versteckte Dateien anzuzeigen. Die meisten GUI-Dateimanager haben die Tastenkombination Strg+H, um versteckte Dateien anzuzeigen. Wenn du dies über ein Terminal machst, benutze `ls -A` in den entsprechenden Verzeichnissen oder `ls -lha` für eine detailliertere Auflistung.
 
-If any of the following files exist, you were infected. If this is the case, delete all of them:
+Wenn eine der folgenden Dateien vorhanden ist, wurdest du infiziert. Wenn das der Fall ist, lösche sie alle:
 * `~/.config/systemd/user/systemd-utility.service`
 * `/etc/systemd/system/systemd-utility.service`
 * `~/.config/.data/lib.jar`
 
-Upon doing so, if applicable, check your `journalctl` for any changes you may not recognize. You can do this with the commands `journalctl -exb` (for system logs) and `journalctl -exb --user` (for user logs). Run the following commands to refresh your systemd services:
+Überprüfe danach, falls zutreffend, dein `journalctl` auf alle Änderungen, die du vielleicht nicht erkennst. Du kannst dies mit den Befehlen `journalctl -exb` (für Systemprotokolle) und `journalctl -exb --user` (für Benutzerprotokolle) tun. Führe die folgenden Befehle aus, um deine systemd-Dienste zu aktualisieren:
 ```sh
-sudo systemctl daemon-reload # Enter your user password
+sudo systemctl daemon-reload # Gib dein Benutzerpasswort ein
 systemctl --user daemon-reload 
 ```
 
-#### MacOS Information
+#### MacOS Informationen
 
-The malware does not seem to affect MacOS, so you should be fine. *Recheck this doc in the future if this changes*
+Die Malware scheint sich nicht auf MacOS auszuwirken, du solltest also keine Probleme haben. *Sieh in Zukunft in diesem Dokument nach, wenn sich das ändert*
 
-#### Scripts
+#### Skripte
 
-*If you don't know how to run a PowerShell or Bash script, these are not for you.*  
-Automated PowerShell or Bash scripts are also available [on the PrismLauncher
-website](https://prismlauncher.org/news/cf-compromised-alert/#automated-script) to check
-for Stage 2 for you, if you have the technical knowhow to run them. Overwolf (Curseforge's
-parent company) has also released a C# Stage 2 detection tool:
+*Wenn du nicht weißt, wie man ein PowerShell- oder Bash-Skript ausführt, ist dies nichts für dich.  
+Automatisierte PowerShell- oder Bash-Skripte sind auch [auf der PrismLauncher
+Website](https://prismlauncher.org/news/cf-compromised-alert/#automated-script) verfügbar, die
+für Stage 2 zu überprüfen, wenn du das technische Know-how hast, sie auszuführen. Overwolf (die Muttergesellschaft von Curseforge)
+Muttergesellschaft) hat auch ein Tool zur Erkennung von C# Stage 2 veröffentlicht:
 https://github.com/overwolf/detection-tool
 
-## I'm Infected, Now What?
+## Ich bin infiziert, was nun?
 
-**IMPORTANT**: We do not currently know the full extent of everything this can do, nor what its intent is, so extreme caution should be exercised until a complete way to remove any symptoms is found. Everything stated here is only *what we know* - please keep an eye on communication from the team on updates if anything critical is found.
+**WICHTIG**: Wir kennen derzeit weder das volle Ausmaß dessen, was es anrichten kann, noch was es bezweckt. Daher ist äußerste Vorsicht geboten, bis ein vollständiger Weg zur Beseitigung aller Symptome gefunden wurde. Alles, was hier steht, ist nur *was wir wissen* - bitte behalte die Kommunikation des Teams im Auge, um Updates zu erhalten, wenn etwas Kritisches gefunden wird.
 
-If you find stage 2 files from fractureiser on your system, your best option now is to
-assume everything on that system is *entirely compromised*. You should:
+Wenn du Dateien der Stufe 2 von Fractureiser auf deinem System findest, ist deine beste Option jetzt
+davon auszugehen, dass alles auf dem System *völlig kompromittiert* ist. Du solltest:
 
-* Back up anything you do not want to lose on an a flash drive or external disk (you should be doing this regularly anyway!)
-* Using a separate device, change the passwords to all services you were logged into on
-  the old machine (Discord, email, etc.). Preferably using a password manager like
+* Sichere alles, was du nicht verlieren willst, auf einem Flash-Laufwerk oder einer externen Festplatte (das solltest du sowieso regelmäßig tun!)
+* Ändere auf einem anderen Gerät die Passwörter für alle Dienste, bei denen du auf dem alten Rechner angemeldet warst
+  dem alten Rechner angemeldet warst (Discord, E-Mail usw.). Verwende dazu am besten einen Passwortmanager wie
   [BitWarden](https://bitwarden.com).
-* If you were not yet using Two-Factor Authentication (Authenticator app or SMS) for every service that supports it, please start doing so immediately
-* If you are able to, contact a professional service in your area to run a proper
-  diagnostic on your machine for anything suspicious, or as a safe default simply wipe and
-  reinstall the system.
-* Read the below section on what to do if you're not infected, as the steps there apply to you too.
+* Wenn du noch nicht die Zwei-Faktor-Authentifizierung (Authenticator-App oder SMS) für alle Dienste, die sie unterstützen, benutzt hast, fang bitte sofort damit an.
+* Wenn du dazu in der Lage bist, wende dich an einen professionellen Dienst in deiner Nähe, der deinen Rechner auf
+  Diagnose deines Rechners auf verdächtige Dinge oder lösche das System und installiere es neu.
+  und installiere das System neu.
+* Lies den folgenden Abschnitt darüber, was zu tun ist, wenn du nicht infiziert bist, denn die Schritte dort gelten auch für dich.
 
-## I'm Not Infected, Now What?
+## Ich bin nicht infiziert, was nun?
 
-The absolute safest thing you can do at the moment is to **not launch Minecraft at all**. Yes, even Vanilla.  
+Das absolut Sicherste, was du im Moment tun kannst, ist, Minecraft **überhaupt nicht zu starten**. Ja, sogar Vanilla. 
 
+Das heißt, wenn zunächst nichts gefunden wurde, ist wahrscheinlich auch nichts passiert.
+Wenn du das Spiel trotzdem spielen willst:
 
-With that said - if nothing was found in the first place, chances are there's nothing going on.
-If you still want to play the game:
-
-* With the current knowledge we have, this is not risky, but we do not guarantee this is accurate - you are *willingly putting yourself at risk*.
-* After each session, check for the infection files in the previous step to ensure nothing has happened since
-* Do not, under **any circumstances**, download or update any mods, modpacks, or plugins you may use, or even run any you downloaded and never ran before - stick to instances you have already used, and those **only**
+* Nach unserem derzeitigen Kenntnisstand ist das nicht riskant, aber wir können nicht garantieren, dass dies der Fall ist - du setzt dich *willentlich einem Risiko aus*.
+* Überprüfe nach jeder Sitzung die Infektionsdateien im vorherigen Schritt, um sicherzustellen, dass nichts passiert ist, seit
+* Lade unter **keinen Umständen** Mods, Modpacks oder Plugins herunter oder aktualisiere sie, die du verwendest, oder führe sie aus, die du heruntergeladen und noch nie ausgeführt hast - bleib bei den Instanzen, die du bereits verwendet hast, und zwar **ausschließlich**

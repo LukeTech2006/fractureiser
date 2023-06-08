@@ -1,84 +1,84 @@
-### Timeline
+### Zeitleiste
 
-The timeline is from bottom-to-top. Topmost events are the most recent.
+Die Zeitachse verläuft von unten nach oben. Die Ereignisse ganz oben sind die jüngsten.
 
 ---
 *2023-06-08 05:11 UTC*
 
-Prospector announces the following:
+Prospector kündigt das Folgende an:
 
-> An update from Modrinth, all files uploaded in the last 10 months
-> (about half of our files) have been scanned and not one infected
-> file has been found.
+> Ein Update von Modrinth, alle in den letzten 10 Monaten hochgeladenen Dateien
+> (etwa die Hälfte unserer Dateien) wurden gescannt und keine einzige infizierte
+> Datei wurde gefunden.
 
 ---
 *2023-06-08 01:12 UTC*
 
-Things have mostly settled down again, virus scanners have begun detecting the stage 1+
-jars as malicious, and a meeting for next steps is planned for the next morning in the US.
+Die Dinge haben sich größtenteils wieder beruhigt, Virenscanner haben begonnen, die Stage 1+
+Jars als bösartig zu erkennen, und für den nächsten Morgen ist in den USA ein Treffen für die nächsten Schritte geplant.
 
-The meeting will be semi-private, but recordings/minutes will be shared afterwards.
+Das Treffen wird halbprivat sein, aber Aufzeichnungen/Protokolle werden im Anschluss veröffentlicht.
 
-CurseForge is scanning all mods, but that process is still ongoing.
+CurseForge scannt alle Mods, aber dieser Prozess ist noch nicht abgeschlossen.
 
 ---
 *2023-06-07 18:51 UTC*
 
-The second C&C server 107[.]189.3.101 has been suspended by its hosting provider
+Der zweite C&C-Server 107[.]189.3.101 wurde von seinem Hosting-Provider gesperrt
 
 ---
-*2023-06-07 16:00 UTC*
+*2023-06-07 16:00 UTC* *2023-06-07 16:00 UTC*
 
-Due to lag in the HackMD, this document was transferred to the GitHub repository
+Aufgrund einer Verzögerung im HackMD wurde dieses Dokument in das GitHub-Repository übertragen
 https://github.com/fractureiser-investigation/fractureiser
 
 ---
 *2023-06-07 14:40 UTC*
 
-The unobfuscated stage 3 was replaced by an obfuscated one, then further by another
-payload.
+Die unverschleierte Stufe 3 wurde durch eine verschleierte ersetzt, dann weiter durch eine andere
+Nutzlast.
 
-That payload is the skyrage updater, which is a known Minecraft malware targeting spigot
-servers.
+Diese Nutzlast ist der Skyrage Updater, eine bekannte Minecraft-Malware, die auf Spigot
+Server abzielt.
 
-After serving skyrage for a while, it switched again to serving the Meteor hacked client.
+Nachdem er skyrage eine Zeit lang bedient hatte, wechselte er wieder zum gehackten Meteor-Client.
 
-(TODO this timeframe is not completely accurate)
+(TODO dieser Zeitrahmen ist nicht ganz korrekt)
 
 ---
 *2023-06-07 14:20 UTC*
 
-Analysis of the new IP address yields a fully deobfuscated stage 3, seemingly uploaded by accident.
-It has been archived here: https://github.com/clrxbl/NekoClient
+Die Analyse der neuen IP-Adresse ergab eine vollständig entschleierte Stufe 3, die anscheinend versehentlich hochgeladen wurde.
+Sie wurde hier archiviert: https://github.com/clrxbl/NekoClient
 
 ---
 *2023-06-07 14:19 UTC*
 
-The Cloudflare pages domain has been taken down.
+Die Domain der Cloudflare-Seiten wurde entfernt.
 
 ---
-*2023-06-07 14:05 UTC*
+*2023-06-07 14:05 UTC* *2023-06-07 14:05 UTC*
 
-The Cloudflare pages domain has switched to pointing to a new IP address, 107.189.3.101.
+Die Domain der Cloudflare-Seiten verweist jetzt auf eine neue IP-Adresse, 107.189.3.101.
 
 ---
 
 
-*2023-06-07 08:52 UTC*
+*2023-06-07 08:52 UTC* *2023-06-07 08:52 UTC*
 
-The dust has mostly settled for now. We have a good idea of the early stages of the malware, and stage 3 is being reverse-engineered. The first stage is temporarily dormant.
+Der Staub hat sich vorerst weitgehend gelegt. Wir haben eine gute Vorstellung von den frühen Stadien der Malware, und Stadium 3 wird gerade zurückentwickelt. Die erste Stufe ist vorübergehend inaktiv.
 
-We will resume updates next morning US time (or thereabouts).
+Wir werden die Aktualisierungen am nächsten Morgen US-Zeit (oder so ähnlich) wieder aufnehmen.
 
 ----
 *2023-06-07 08:09 UTC*
 
-We are still working on reversing stage 3, see the section below for technical details.
+Wir arbeiten immer noch an der Umkehrung von Stufe 3, siehe den Abschnitt unten für technische Details.
 
 ----
 *2023-06-07 07:37 UTC*
 
-CurseForge published the following statement in their discord's #news channel:
+CurseForge hat folgendes Statement im #news channel ihres Discords veröffentlicht:
 
 > Hey everyone,
 > 
@@ -99,99 +99,98 @@ CurseForge published the following statement in their discord's #news channel:
 ----
 *2023-06-07 07:24 UTC*
 
-Darkhax has contacted Curseforge representatives who have confirmed that the affected files were uploaded via the UI, not the API.
+Darkhax hat sich mit Vertretern von Curseforge in Verbindung gesetzt, die bestätigt haben, dass die betroffenen Dateien über die Benutzeroberfläche hochgeladen wurden, nicht über die API.
 
-Curseforge has halted upload approvals while this situation unfolds and have taken down many infected files.
+Curseforge hat die Freigabe von Uploads gestoppt, während sich die Situation entwickelt, und hat viele infizierte Dateien heruntergenommen.
 
-They are also investigating the IPs of the uploaders of the malicious files, to see if they match previous requests by the rightful account holders.
+Sie untersuchen auch die IPs der Uploader der bösartigen Dateien, um zu sehen, ob sie mit früheren Anfragen der rechtmäßigen Kontoinhaber übereinstimmen.
 
 ----
 *2023-06-07 7:03 UTC*
 
-We believe we've discovered the true function of Stage3 (`client.jar`) and are attempting to document it here. It's not good, folks.
+Wir glauben, dass wir die wahre Funktion von Stage3 (`client.jar`) entdeckt haben und versuchen, sie hier zu dokumentieren. Es ist nicht gut, Leute.
 
-The quick version, while we get this document in shape: client.jar searches *the entire filesystem* for files that look like mod JARs, and infects them with Stage0. This includes *entire Gradle and Maven caches*, as well as tons of things mod devs would likely never think to check. The potential scale and scope of this infection has gone from "a couple weird mods" to *potentially infinite*.
+Die Kurzversion, während wir dieses Dokument in Form bringen: client.jar durchsucht *das gesamte Dateisystem* nach Dateien, die wie mod JARs aussehen, und infiziert sie mit Stage0. Dazu gehören *gesamte Gradle- und Maven-Caches*, sowie tonnenweise Dinge, die Mod-Entwickler wahrscheinlich nie überprüfen würden. Das potenzielle Ausmaß und der Umfang dieser Infektion hat sich von "ein paar seltsamen Mods" auf *potenziell unendlich* erhöht.
 
-We believe this is how the infection initially spread, and Curseforge may not have been the initial attack vector.
+Wir glauben, dass sich die Infektion ursprünglich auf diese Weise verbreitet hat und dass Curseforge möglicherweise nicht der ursprüngliche Angriffsvektor gewesen ist.
 
 ----
 
 *2023-06-07 6:27 UTC*
 
-Investigation has slowed down and most of the team is going to bed. unascribed has opened an email inbox for people to submit samples or other useful information. williewillus is currently working to clean up and get the information presented by D3SL into this doc. 
+Die Untersuchungen haben sich verlangsamt und die meisten Mitglieder des Teams gehen schlafen. unascribed hat einen E-Mail-Posteingang eröffnet, an den Leute Proben oder andere nützliche Informationen senden können. williewillus arbeitet derzeit daran, die von D3SL vorgelegten Informationen zu bereinigen und in dieses Dokument aufzunehmen.
 
 ----
 
 *2023-06-07 6:20 UTC*
 
-D3SL informs the unofficial Discord that they have a copy of the full (untruncated) Stage 3 `client.jar`, as well as an in-depth analysis of what the malware is doing. They first noticed this weeks ago and undertook in-depth analysis, and as a result was able to obtain full copies of all the payloads.
+D3SL teilt dem inoffiziellen Discord mit, dass sie eine Kopie der vollständigen (nicht gekürzten) Stage 3 `client.jar` sowie eine detaillierte Analyse der Malware haben. Sie haben dies bereits vor Wochen bemerkt und eine gründliche Analyse durchgeführt, wodurch sie in der Lage waren, vollständige Kopien aller Payloads zu erhalten.
 
 ----
 
 *2023-06-07 5:27 UTC*
 
-We've discovered a potential (truncated) Stage 3 file; it is heavily obfuscated and contains a native payload DLL that attempts to steal credentials from the Windows credentials store.
+Wir haben eine potenzielle (gekürzte) Stage 3-Datei entdeckt; sie ist stark verschleiert und enthält eine native Nutzlast-DLL, die versucht, Anmeldeinformationen aus dem Windows-Anmeldeinformationsspeicher zu stehlen.
 
 ----
 
 *2023-06-07 4:57 UTC*
 
-Files uploaded in April have been discovered; either the dates are being spoofed, or this has been going on even longer. Many of the accounts have Last Active times in 1999 — likely a quirk with old CurseForge accounts, but still notable.
+Es wurden Dateien entdeckt, die im April hochgeladen wurden; entweder werden die Daten gefälscht, oder das Ganze dauert schon länger an. Viele der Accounts haben Last Active Zeiten im Jahr 1999 - wahrscheinlich eine Eigenart alter CurseForge Accounts, aber dennoch bemerkenswert.
 
-Modrinth staff are investigating if any uploads on there are compromised. A quick pass they did through recently updated projects looked OK.
+Die Mitarbeiter von Modrinth untersuchen derzeit, ob irgendwelche Uploads dort kompromittiert sind. Ein schneller Durchlauf durch kürzlich aktualisierte Projekte sah OK aus.
 
 ----
     
 *2023-06-07 4:40 UTC*
 
-The scope of this compromise seems larger than initially realized. The malicious files go back multiple weeks, as early as May 20th. We only noticed today because they compromised a popular modpack.
+Das Ausmaß dieser Kompromittierung scheint größer zu sein als zunächst angenommen. Die bösartigen Dateien reichen mehrere Wochen zurück, sogar bis zum 20. Mai. Wir haben es erst heute bemerkt, weil sie ein beliebtes Modpack kompromittiert haben.
 
 ---
 
 *2023-06-07 3:38 UTC*
 
 
-The C&C server has been taken down by the server provider. A new one will likely come up if the Cloudflare page stays up, we're monitoring it.
+Der C&C-Server wurde vom Server-Provider abgeschaltet. Ein neuer wird wahrscheinlich auftauchen, wenn die Cloudflare-Seite bestehen bleibt, wir beobachten sie.
 
 ----
 
 *2023-06-07 3:26 UTC*
 
-We were sent a possible Stage 2 jar by an anonymous user that claims to work at a server host.
+Wir haben ein mögliches Stage 2 jar von einem anonymen Benutzer erhalten, der behauptet, bei einem Server-Host zu arbeiten.
 
 ----
 
 *2023-06-07 2:26 UTC*
 
-The #cfmalware EsperNet channel is created to coordinate discussion that had been happening in multiple Discord guilds and Matrix spaces.
+Der #cfmalware EsperNet-Kanal wurde eingerichtet, um die Diskussionen zu koordinieren, die in verschiedenen Discord-Gilden und Matrix-Räumen stattfanden.
 
 ----
 
 *2023-06-07 0:40 UTC*
 
-The team behind this document learns of the malicious files included in an unauthorized update to Better Minecraft.
+Das Team hinter diesem Dokument erfährt von den bösartigen Dateien, die in einem nicht autorisierten Update für Better Minecraft enthalten sind.
 
 ----
 
-*2023-06-01 to 2023-06-04*
+*2023-06-01 bis 2023-06-04*
 
-D3SL becomes suspicious of the malicious files' consumption of CPU and RAM and begins
-investigating. Order of operations:
+D3SL wird misstrauisch, weil die bösartigen Dateien CPU und RAM verbrauchen, und beginnt
+Ermittlungen. Reihenfolge der Operationen:
 
-1. Suspicion about the Java executable's firewall request leads to it being blocked.
-2. Inability to reach self-hosted services leads to event viewer showing all tcpip ports
-   blocked
-3. Netstat shows massive port consumption via the hostile jar file's PID
-4. Identifying the malicious javaw.exe running libwebgl64.jar confirmed malware
+1. Der Verdacht auf die Firewall-Anfrage der Java-Datei führt dazu, dass sie blockiert wird.
+2. Die Unfähigkeit, selbst gehostete Dienste zu erreichen, führt zu einer Ereignisanzeige, die alle tcpip-Ports
+   blockiert
+3. Netstat zeigt massiven Portverbrauch über die PID der feindlichen jar-Datei an
+4. Die Identifizierung der bösartigen javaw.exe, die libwebgl64.jar ausführt, bestätigt Malware
 
-From here Tzalumen was instrumental in assisting with the initial reverse engineering of
-the byte[] obfuscated code and manually capturing a complete set of files from the remote
-destinations.
+Von hier aus half Tzalumen beim anfänglichen Reverse Engineering
+des byte[]-verschleierten Codes und der manuellen Erfassung eines kompletten Satzes von Dateien der Ziele.
 
-Full copies of all original files (incl. deobfuscations) except lib.dll, translations of
-all remote destinations contacted, and a writeup of the infection process and several
-hostile capabilities were provided through channels to Windows Defender and
-Malwarebytes. Curseforge was notified as well. Knowledge of the malware wasn't shared
-publicly at this time in order to avoid tipping off the attackers
+Vollständige Kopien aller Originaldateien (einschließlich Entschlüsselung) mit Ausnahme von lib.dll, Übersetzungen von
+Übersetzungen aller kontaktierten entfernten Ziele sowie ein Bericht über den Infektionsprozess und mehrere
+feindlichen Fähigkeiten wurden über Kanäle an Windows Defender und
+Malwarebytes übermittelt. Curseforge wurde ebenfalls benachrichtigt. Das Wissen über die Malware wurde nicht
+wurde zu diesem Zeitpunkt nicht veröffentlicht, um die Angreifer nicht zu verraten.
 
 ----
