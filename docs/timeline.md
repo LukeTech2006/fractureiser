@@ -1,6 +1,6 @@
-### Zeitleiste
+### Zeitlicher Ablauf
 
-Die Zeitachse verläuft von unten nach oben. Die Ereignisse ganz oben sind die jüngsten.
+Die Geschehnisse verlaufen von unten nach oben. Die Ereignisse ganz oben sind die jüngsten.
 
 ---
 *2023-06-08 05:11 UTC*
